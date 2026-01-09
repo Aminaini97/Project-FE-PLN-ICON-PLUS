@@ -1,0 +1,112 @@
+/* --- untuk ukuran dan tata letak pakai flex jangan pakai absolut --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font modern */
+}
+
+body {
+    background-color: #F4F7FE; /* Latar belakang halaman (abu-abu kebiruan muda) */
+    color: #2B3674; /* Warna teks utama (biru gelap) */
+}
+
+.container {
+    display: flex; /* Layout Kiri-Kanan */
+    min-height: 100vh; /* Tinggi minimal 100% layar */
+}
+
+/* --- 2. SIDEBAR UTAMA --- */
+.sidebar {
+    width: 280px; /* Lebar tetap sidebar */
+    background-color: #ffffff; /* Warna background sidebar putih */
+    padding: 25px; /* Jarak "napas" di dalam sidebar */
+    display: flex;
+    flex-direction: column; /* Susunan elemen ke bawah (Logo -> Search -> Menu) */
+    border-right: 1px solid #E0E5F2; /* Garis tipis pembatas kanan */
+}
+
+/* --- 3. LOGO AREA --- */
+.logo {
+    margin-bottom: 35px; /* Jarak dari logo ke kotak search */
+    text-align: center; /* Logo di tengah (opsional, bisa 'left') */
+    padding-bottom: 20px;
+    border-bottom: 1px solid #f0f0f0; /* Garis tipis di bawah logo */
+}
+
+/* --- 4. KOTAK PENCARIAN (SEARCH BOX) --- */
+.search-box {
+    background-color: #F4F7FE; /* Warna kotak abu muda */
+    border-radius: 30px; /* Membuat sudut sangat bulat (kapsul) */
+    padding: 12px 20px;
+    display: flex; /* Agar ikon dan input sejajar */
+    align-items: center;
+    margin-bottom: 30px; /* Jarak ke menu bawahnya */
+}
+
+.search-box input {
+    border: none; /* Hilangkan garis pinggir kotak input */
+    background: transparent; /* Background transparan agar warna induknya terlihat */
+    outline: none; /* Hilangkan garis biru saat diklik */
+    margin-left: 10px; /* Jarak antara ikon kaca pembesar dan teks */
+    width: 100%;
+    color: #8F9BBA; /* Warna teks input */
+    font-size: 14px;
+}
+
+.search-box i {
+    color: #2B3674; /* Warna ikon kaca pembesar */
+}
+
+/* --- 5. MENU NAVIGASI --- */
+/* --- MENU NAVIGASI (UPDATE) --- */
+nav ul {
+    list-style: none;
+    margin-top: 20px; /* Sedikit jarak dari search box */
+}
+
+nav li {
+    margin-bottom: 8px;
+}
+
+/* Tampilan Link Menu */
+nav a {
+    display: flex;       /* KUNCI 1: Flexbox biar Ikon & Teks sejajar Kiri-Kanan */
+    align-items: center; /* KUNCI 2: Biar Ikon & Teks pas di tengah-tengah vertikal */
+    gap: 12px;           /* KUNCI 3: Jarak antar Ikon dan Teks (pengganti margin-right) */
+    
+    text-decoration: none;
+    color: #2B3674;      /* Warna teks gelap (sesuai desain target) */
+    font-weight: 500;
+    font-size: 15px;
+    padding: 12px 16px;  /* Spasi di dalam tombol */
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+/* --- ATURAN KHUSUS SVG (PENTING!) --- */
+/* Ini yang bikin ikon kamu rapi dan tidak raksasa */
+nav a svg {
+    width: 20px;         /* Kita kunci ukurannya 20px */
+    height: 20px;        
+    flex-shrink: 0;      /* Mencegah ikon gepeng/penyok */
+    fill: currentColor;  /* Warnanya ngikut warna teks induknya */
+}
+
+/* --- EFEK HOVER & ACTIVE --- */
+nav a:hover {
+    background-color: #F4F7FE;
+    color: #4318FF; /* Saat di-hover jadi biru terang */
+}
+
+nav li.active a {
+    background-color: #F4F7FE;
+    color: #2B3674;
+    font-weight: 700;
+    border-right: 4px solid #4318FF;
+}
+
+/* Khusus ikon di menu aktif, warnanya beda */
+nav li.active a svg {
+    fill: #4318FF; /* Ikon jadi biru/ungu terang */
+}
