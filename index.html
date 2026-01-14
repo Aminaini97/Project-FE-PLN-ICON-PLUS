@@ -17,7 +17,7 @@ icon sudah sesuai tapi untuk tulisan side bar masih perlu disesuaikan di css
         <aside class="sidebar">
             <div class="logo">
                 <!--Logo dan judul sidebar-->
-                <img src="logo_PLN_Icon_plus.png" alt="Logo PLN Icon Plus" width="150">
+                <img src="assets/logo_PLN_Icon_plus.png" alt="Logo PLN Icon Plus" width="150">
             </div>
             <!-- Menu navigasi -->
             <nav class="navigation-menu"> 
@@ -63,13 +63,26 @@ icon sudah sesuai tapi untuk tulisan side bar masih perlu disesuaikan di css
         </aside>
 
         <main class="main-content">
-            <header class="header">
-                <h1>Welcome to Energy Management Platform</h1>
-            </header>
-            <section class="content-section">
-                <h2>Dashboard Overview</h2>
-                <p>Here you can monitor energy consumption, manage devices, and analyze costs.</p>
-            </section>
+            <header>
+        <div class="header-title">
+            <h1>Energy Management Platform</h1>
+        </div>
+
+        <div class="header-right">
+            <button class="notification-btn">
+                <i class="fa-regular fa-bell"></i>
+            </button>
+
+            <div class="user-profile">
+                <img src="https://ui-avatars.com/api/?name=Admin+PLN&background=random" alt="User Profile">
+            </div>
+        </div>
+    </header>
+
+    <div class="content-body" style="padding: 0 30px;">
+        <p style="color: #A3AED0; margin-top: 20px;">Konten dashboard akan dimuat di sini...</p>
+    </div>
+        </main>
     </div>
     <script src="script.js"></script>
 </body>

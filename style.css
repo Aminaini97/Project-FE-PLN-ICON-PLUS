@@ -1,112 +1,224 @@
-/* --- untuk ukuran dan tata letak pakai flex jangan pakai absolut --- */
+/* --- IMPORT FONT ROBOTO DARI GOOGLE --- */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+/* 1. KONFIGURASI GLOBAL (CSS VARIABLES) */
+
+:root {
+    /* --- WARNA UTAMA --- */
+    --primary-color: #4318FF;       /* Biru Terang (Brand/Active) */
+    --secondary-color: #2B3674;     /* Biru Gelap (Teks Utama) */
+    --text-grey: #A3AED0;           /* Teks Abu-abu (Menu Non-aktif) */
+    --bg-body: #F4F7FE;             /* Background Halaman Utama */
+    --bg-white: #FFFFFF;            /* Warna Putih Murni */
+    
+    /* --- UKURAN & JARAK --- */
+    --sidebar-width: 256px;         /* Lebar Sidebar sesuai hitungan kita */
+    --header-height: 77px;          /* Tinggi Header */
+    --border-radius: 10px;          /* Kelengkungan sudut kotak */
+    --transition-speed: 0.3s;       /* Kecepatan animasi */
+}
+
+/* 2. RESET & DASAR */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font modern */
+    font-family: 'Roboto', sans-serif;
 }
 
 body {
-    background-color: #F4F7FE; /* Latar belakang halaman (abu-abu kebiruan muda) */
-    color: #2B3674; /* Warna teks utama (biru gelap) */
-}
-
-.container {
-    display: flex; /* Layout Kiri-Kanan */
-    min-height: 100vh; /* Tinggi minimal 100% layar */
-}
-
-/* --- 2. SIDEBAR UTAMA --- */
-.sidebar {
-    width: 280px; /* Lebar tetap sidebar */
-    background-color: #ffffff; /* Warna background sidebar putih */
-    padding: 25px; /* Jarak "napas" di dalam sidebar */
-    display: flex;
-    flex-direction: column; /* Susunan elemen ke bawah (Logo -> Search -> Menu) */
-    border-right: 1px solid #E0E5F2; /* Garis tipis pembatas kanan */
-}
-
-/* --- 3. LOGO AREA --- */
-.logo {
-    margin-bottom: 35px; /* Jarak dari logo ke kotak search */
-    text-align: center; /* Logo di tengah (opsional, bisa 'left') */
-    padding-bottom: 20px;
-    border-bottom: 1px solid #f0f0f0; /* Garis tipis di bawah logo */
-}
-
-/* --- 4. KOTAK PENCARIAN (SEARCH BOX) --- */
-.search-box {
-    background-color: #F4F7FE; /* Warna kotak abu muda */
-    border-radius: 30px; /* Membuat sudut sangat bulat (kapsul) */
-    padding: 12px 20px;
-    display: flex; /* Agar ikon dan input sejajar */
-    align-items: center;
-    margin-bottom: 30px; /* Jarak ke menu bawahnya */
-}
-
-.search-box input {
-    border: none; /* Hilangkan garis pinggir kotak input */
-    background: transparent; /* Background transparan agar warna induknya terlihat */
-    outline: none; /* Hilangkan garis biru saat diklik */
-    margin-left: 10px; /* Jarak antara ikon kaca pembesar dan teks */
-    width: 100%;
-    color: #8F9BBA; /* Warna teks input */
+    background-color: var(--bg-body);
+    color: var(--secondary-color);
     font-size: 14px;
 }
 
-.search-box i {
-    color: #2B3674; /* Warna ikon kaca pembesar */
+/* Layout Utama: Sidebar di Kiri, Konten di Kanan */
+.container {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
 }
 
-/* --- 5. MENU NAVIGASI --- */
-/* --- MENU NAVIGASI (UPDATE) --- */
+/* 3. SIDEBAR (KIRI) */
+
+.sidebar {
+    width: var(--sidebar-width);
+    background-color: var(--bg-white);
+    /* Padding presisi sesuai Figma: Top 13px | Side 16px */
+    padding: 13px 16px 20px 16px; 
+    display: flex;
+    flex-direction: column;
+    position: fixed; /* Sidebar diam di tempat saat discroll */
+    height: 100vh;   /* Full tinggi layar */
+    left: 0;
+    top: 0;
+    z-index: 100;    /* Agar selalu di atas layer lain */
+}
+
+/* Logo Area */
+.logo {
+    width: 155px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    /* Jarak ke menu di bawahnya */
+    margin-bottom: 14px; 
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: left;
+}
+
+/* Menu Navigasi */
+nav {
+    width: 100%;
+    margin-top: 14px; /* Jarak tambahan agar pas di Y=77px */
+}
+
 nav ul {
     list-style: none;
-    margin-top: 20px; /* Sedikit jarak dari search box */
 }
 
 nav li {
-    margin-bottom: 8px;
+    margin-bottom: none; 
 }
 
-/* Tampilan Link Menu */
 nav a {
-    display: flex;       /* KUNCI 1: Flexbox biar Ikon & Teks sejajar Kiri-Kanan */
-    align-items: center; /* KUNCI 2: Biar Ikon & Teks pas di tengah-tengah vertikal */
-    gap: 12px;           /* KUNCI 3: Jarak antar Ikon dan Teks (pengganti margin-right) */
-    
+    display: flex;
+    align-items: center;
+    gap: 12px;
     text-decoration: none;
-    color: #2B3674;      /* Warna teks gelap (sesuai desain target) */
+    color: var(--text-grey);
     font-weight: 500;
     font-size: 15px;
-    padding: 12px 16px;  /* Spasi di dalam tombol */
-    border-radius: 8px;
-    transition: all 0.3s ease;
+    padding: 12px 16px;
+    border-radius: none;
+    transition: all var(--transition-speed) ease;
 }
 
-/* --- ATURAN KHUSUS SVG (PENTING!) --- */
-/* Ini yang bikin ikon kamu rapi dan tidak raksasa */
-nav a svg {
-    width: 20px;         /* Kita kunci ukurannya 20px */
-    height: 20px;        
-    flex-shrink: 0;      /* Mencegah ikon gepeng/penyok */
-    fill: currentColor;  /* Warnanya ngikut warna teks induknya */
+/* Ikon Menu (SVG/FontIcon) */
+nav a svg, nav a i {
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+    fill: currentColor; /* Warna ngikut teks */
+    color: currentColor;
+    transition: inherit;
 }
 
-/* --- EFEK HOVER & ACTIVE --- */
+/* Efek Hover */
+/* --- EFEK HOVER (Saat mouse diarahkan) --- */
 nav a:hover {
-    background-color: #F4F7FE;
-    color: #4318FF; /* Saat di-hover jadi biru terang */
+    background-color: #F2F2F2; /* Abu-abu sangat muda */
+    color: #000000;            /* Teks jadi Hitam */
 }
 
+/* Biar ikon saat di-hover juga jadi hitam */
+nav a:hover svg,
+nav a:hover i {
+    color: #000000;
+    fill: #000000;
+}
+
+/* --- STATUS ACTIVE (Menu yang sedang dipilih) --- */
 nav li.active a {
-    background-color: #F4F7FE;
-    color: #2B3674;
-    font-weight: 700;
-    border-right: 4px solid #4318FF;
+    background-color: #E0E0E0; /* Abu-abu sedang (Box penanda) */
+    color: #000000;            /* Teks Hitam Pekat */
+    font-weight: 700;          /* Teks Tebal */
 }
 
-/* Khusus ikon di menu aktif, warnanya beda */
-nav li.active a svg {
-    fill: #4318FF; /* Ikon jadi biru/ungu terang */
+/* Ikon di menu aktif jadi Hitam juga */
+nav li.active a svg,
+nav li.active a i {
+    color: #000000;
+    fill: #000000;
+}
+
+/* 4. MAIN CONTENT & HEADER (KANAN) */
+
+.main-content {
+    /* Karena sidebar 'fixed', kita harus kasih margin kiri sebesar lebar sidebar */
+    margin-left: var(--sidebar-width);
+    flex: 1; /* Mengambil sisa ruang */
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- HEADER --- */
+/* --- HEADER (Updated: Monokrom) --- */
+header {
+    height: var(--header-height);
+    background-color: #FFFFFF; /* Background Putih Bersih */
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    padding: 0 40px; /* Jarak kiri-kanan konten header */
+    
+    /* Opsional: Memberi sedikit bayangan halus di bawah biar misah sama konten */
+    /* box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05); */
+    
+}
+
+/* Judul Header (ENERGY MANAGEMENT PLATFORM) */
+.header-title h1 {
+    font-size: 20px; /* Ukuran diperbesar sedikit biar gagah */
+    font-weight: 800; /* Sangat tebal (Bold) */
+    color: #000000;   /* Teks Hitam Pekat */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Area Kanan (Notif & Profil) */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Tombol Notifikasi */
+.notification-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #000000; /* Ikon Lonceng Hitam */
+    font-size: 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Titik Notifikasi (Dot) */
+/* Kita bikin Hitam/Abu tua dulu karena belum main warna */
+.notification-btn::after {
+    content: '';
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 8px;
+    height: 8px;
+    background-color: #555555; /* Abu-abu tua (pengganti merah) */
+    border-radius: 50%;
+    border: 2px solid #FFFFFF; /* Garis putih biar kelihatan misah */
+}
+
+/* Profil User */
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.user-profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #E0E0E0; /* Garis pinggir tipis */
 }
