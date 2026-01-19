@@ -8,7 +8,7 @@ icon sudah sesuai tapi untuk tulisan side bar masih perlu disesuaikan di css
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Judul dasboard -->
-    <title>ENERGY MANAGEMENT PLATFORM</title> 
+    <title>Profil Pengguna - ENERGY MANAGEMENT PLATFORM</title> 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -73,14 +73,50 @@ icon sudah sesuai tapi untuk tulisan side bar masih perlu disesuaikan di css
                 <i class="fa-regular fa-bell"></i>
             </button>
 
-            <div class="user-profile" onclick="window.location.href='profile.html'"">
+            <div class="user-profile">
                 <img src="https://ui-avatars.com/api/?name=Admin+PLN&background=random" alt="User Profile">
             </div>
         </div>
     </header>
 
-    <div class="content-body" style="padding: 0 30px;">
-        <p style="color: #A3AED0; margin-top: 20px;">Konten dashboard akan dimuat di sini...</p>
+    <div class="content-wrapper">
+        <div class="profile-card">
+            <hr class="divider">
+            <h3 class="card-title">Detail Pengguna</h3>
+
+            <form action="#">
+                <div class="form-row">
+                    <div class="form-group half-width">
+                        <label>Nama Perusahaan</label>
+                        <input type="text" name="company_name" class="input-field "placeholder="Masukkan Nama Perusahaan disini">
+                    </div>
+
+                    <div class="form-group half-width">
+                        <label>Email</label>
+                        <input type="email" name="email" class="input-field" placeholder="Masukkan email">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" name="username" class="input-field" placeholder="Masukkan username">
+                </div>
+
+                <div class="form-group">
+                    <label>Nomor Telepon</label>
+                    <input type="text" name="nomor_telepon" class="input-field" placeholder="contoh : 085606111111">
+                </div>
+
+                <div class="form-group">
+                    <label>Alamat Perusahaan</label>
+                    <input type="text" name="address" class="input-field" placeholder="Masukkan alamat lengkap">
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-save">Simpan</button>
+                </div>
+            </form>
+        </div>
     </div>
         </main>
     </div>

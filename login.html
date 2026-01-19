@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daftar Akun Baru - Energy Management Platform</title>
+    <title>Masuk - Energy Management Platform</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="auth-body">
+
+<body class="auth-body login-page">
 
     <header class="auth-header">
         <div class="logo">
@@ -20,30 +21,15 @@
 
     <div class="auth-content">
         <div class="auth-card">
-            <h2 class="auth-title">
-                Daftar
-            </h2>
-            
+            <h2 class="auth-title" style="margin-bottom: 8px;">Selamat Datang Kembali!</h2>
+            <p style="color: #A3AED0; margin-bottom: 30px; font-size: 14px;">Silakan masuk untuk melanjutkan</p>
+
             <form action="#" method="POST">
                 
-                <div class="form-row">
-                    <div class="form-group half-width">
-                        <label>Nama Perusahaan</label>
-                        <input type="text" name="company_name" class="input-field" required>
-                    </div>
-
-                    <div class="form-group half-width">
-                        <label>Email</label>
-                        <input type="email" name="email" class="input-field" required>
-                    </div>
-                </div>
-
                 <div class="form-group">
                     <label>Username</label>
                     <input type="text" name="username" class="input-field" required>
-                </div>
-
-                <div class="form-group">
+                </div> <div class="form-group">
                     <label>Password</label>
                     <div class="password-wrapper">
                         <input type="password" name="password" class="input-field" required>
@@ -51,16 +37,23 @@
                     </div>
                 </div>
 
-                <button type="submit" class="auth-button">Daftar</button>
+                <div class="auth-options">
+                    <label class="remember-me">
+                        <input type="checkbox" name="remember">
+                        Remember me
+                    </label>
+                    <a href="forgot-password.html" class="forgot-password">Lupa kata sandi?</a>
+                </div>
 
+                <button type="submit" class="auth-button">Masuk</button>
             </form>
 
             <div class="auth-footer">
-                <p><a href="login.html" style="color:black; font-weight:bold;">Sudah punya akun? </a></p>
+                <p>Belum punya akun? <a href="register.html" style="color:black; font-weight:bold;">Daftar Sekarang</a></p>
             </div>
-
         </div>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
