@@ -1,0 +1,97 @@
+<!-- 
+icon sudah sesuai tapi untuk tulisan side bar masih perlu disesuaikan di css
+-->
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Judul dasboard -->
+    <title>ENERGY MANAGEMENT PLATFORM</title> 
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                <!--Logo dan judul sidebar-->
+                <img src="assets/logo_PLN_Icon_plus.png" alt="Logo PLN Icon Plus" width="150">
+            </div>
+            <!-- Menu navigasi -->
+            <nav class="navigation-menu"> 
+                <ul>
+                    <li><a href="index.html">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10.8839 0.366117C10.3957 -0.122039 9.60427 -0.122039 9.11612 0.366117L0.366117 9.11612C-0.122039 9.60427 -0.122039 10.3957 0.366117 10.8839C0.854272 11.372 1.64573 11.372 2.13388 10.8839L2.5 10.5178V18.75C2.5 19.4404 3.05964 20 3.75 20H6.25C6.94036 20 7.5 19.4404 7.5 18.75V16.25C7.5 15.5596 8.05964 15 8.75 15H11.25C11.9404 15 12.5 15.5596 12.5 16.25V18.75C12.5 19.4404 13.0596 20 13.75 20H16.25C16.9404 20 17.5 19.4404 17.5 18.75V10.5178L17.8661 10.8839C18.3543 11.372 19.1457 11.372 19.6339 10.8839C20.122 10.3957 20.122 9.60427 19.6339 9.11612L10.8839 0.366117Z" fill="black"/>
+                        </svg>
+                        <span>Dashboard</span>
+                    </a></li>
+                    <li><a href="#">           
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.8048 0.252418C19.7345 0.175226 19.6493 0.113079 19.5544 0.069733C19.4595 0.0263867 19.3567 0.00274094 19.2524 0.000224465C19.148 -0.00229201 19.0442 0.016373 18.9473 0.0550919C18.8504 0.0938108 18.7623 0.151779 18.6884 0.225495L18.0937 0.817322C18.0216 0.889444 17.9812 0.987234 17.9812 1.0892C17.9812 1.19116 18.0216 1.28895 18.0937 1.36107L18.6389 1.9053C18.6746 1.94121 18.7171 1.9697 18.7639 1.98914C18.8107 2.00858 18.8608 2.01859 18.9115 2.01859C18.9622 2.01859 19.0123 2.00858 19.0591 1.98914C19.1059 1.9697 19.1484 1.94121 19.1841 1.9053L19.7639 1.32838C20.0572 1.03559 20.0846 0.558668 19.8048 0.252418Z" fill="black"/>
+                        <path d="M16.8913 2.01925L8.21248 10.6827C8.15986 10.7351 8.12161 10.8002 8.10142 10.8717L7.69998 12.0673C7.69036 12.0998 7.68968 12.1342 7.69801 12.167C7.70634 12.1998 7.72336 12.2297 7.74729 12.2537C7.77122 12.2776 7.80116 12.2946 7.83396 12.303C7.86675 12.3113 7.90119 12.3106 7.93364 12.301L9.12834 11.8995C9.19981 11.8793 9.26488 11.8411 9.31729 11.7885L17.9807 3.10867C18.0609 3.02766 18.1058 2.9183 18.1058 2.80434C18.1058 2.69038 18.0609 2.58103 17.9807 2.50002L17.5024 2.01925C17.4213 1.93836 17.3114 1.89294 17.1968 1.89294C17.0823 1.89294 16.9724 1.93836 16.8913 2.01925Z" fill="black"/>
+                        <path d="M16.2663 7.00287L10.4062 12.8745C10.1797 13.1015 9.90137 13.27 9.59518 13.3654L8.34999 13.7822C8.05447 13.8656 7.74205 13.8688 7.44492 13.7913C7.14778 13.7138 6.87668 13.5585 6.65955 13.3414C6.44241 13.1243 6.28711 12.8532 6.20962 12.556C6.13214 12.2589 6.13529 11.9465 6.21874 11.6509L6.63557 10.4058C6.73064 10.0996 6.89878 9.82129 7.12547 9.59469L12.9971 3.73364C13.0509 3.67987 13.0876 3.61136 13.1025 3.53676C13.1173 3.46215 13.1098 3.38481 13.0807 3.31451C13.0516 3.24422 13.0024 3.18412 12.9391 3.14183C12.8759 3.09953 12.8015 3.07694 12.7255 3.0769H2.6923C1.97826 3.0769 1.29346 3.36056 0.788558 3.86546C0.283653 4.37037 0 5.05517 0 5.76921V17.3077C0 18.0217 0.283653 18.7065 0.788558 19.2114C1.29346 19.7163 1.97826 20 2.6923 20H14.2307C14.9448 20 15.6296 19.7163 16.1345 19.2114C16.6394 18.7065 16.9231 18.0217 16.9231 17.3077V7.2745C16.923 7.19843 16.9004 7.12407 16.8581 7.06084C16.8158 6.99761 16.7557 6.94834 16.6854 6.91927C16.6151 6.89019 16.5378 6.88261 16.4632 6.89749C16.3886 6.91237 16.3201 6.94904 16.2663 7.00287Z" fill="black"/>
+                        </svg>
+                        <span>Percakapan Baru</span>
+                    </a></li>
+                </ul>
+                <div class="chat-sidebar-section">
+                    
+                    <h4 class="history-title">Riwayat Percakapan</h4>
+                    <div class="history-search-wrapper">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" placeholder="Cari riwayat percakapan...">
+                    </div>
+
+                    <ul class="history-list">
+                        <li><a href="#">Percakapan 1</a></li>
+                        <li><a href="#">Percakapan 2</a></li>
+                        <li><a href="#">Percakapan 3</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+    
+    <header>
+        <div class="header-title">
+            <h1>Energy Management Platform</h1>
+        </div>
+
+        <div class="header-right">
+            <button class="notification-btn" onclick="window.location.href='notification.html'">
+                <i class="fa-regular fa-bell"></i>
+            </button>
+            <div class="user-profile" onclick="window.location.href='profile.html'">
+                <img src="https://ui-avatars.com/api/?name=Admin+PLN&background=random" alt="User Profile">
+            </div>
+        </div>
+    </header>
+
+    <div class="content-wrapper" style="display: flex; flex-direction: column; height: calc(100vh - 77px); padding: 30px;">
+        
+        <div class="chat-header-title" style="margin-bottom: 20px;">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> ASISTEN AI
+        </div>
+
+        <div class="chat-body-empty">
+            <h2>Halo, silahkan tanyakan kepada Asisten AI!</h2>
+        </div>
+
+        <div class="chat-footer-input">
+            <div class="input-pill">
+                <input type="text" placeholder="Tanyakan kepada Asisten AI...">
+                <button type="submit"><i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+        </div>
+
+    </div>
+
+</main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

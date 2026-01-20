@@ -1,6 +1,3 @@
-<!-- 
-icon sudah sesuai tapi untuk tulisan side bar masih perlu disesuaikan di css
--->
 <!DOCTYPE html>
 <html lang="id">
 
@@ -8,7 +5,7 @@ icon sudah sesuai tapi untuk tulisan side bar masih perlu disesuaikan di css
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Judul dasboard -->
-    <title>ENERGY MANAGEMENT PLATFORM</title> 
+    <title>Notofikasi - ENERGY MANAGEMENT PLATFORM</title> 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -54,7 +51,7 @@ icon sudah sesuai tapi untuk tulisan side bar masih perlu disesuaikan di css
                         </svg>
                         <span>Asisten AI</span>
                     </a></li>
-                    <li><a href="setting.html">
+                    <li><a href="#">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.8615 1.46368C11.3877 -0.487892 8.61225 -0.487893 8.13847 1.46368C7.83242 2.72437 6.38806 3.32264 5.28021 2.64761C3.56523 1.60265 1.60266 3.56523 2.64761 5.28021C3.32264 6.38806 2.72437 7.83242 1.46368 8.13847C-0.487893 8.61225 -0.487892 11.3877 1.46368 11.8615C2.72437 12.1676 3.32264 13.6119 2.64761 14.7198C1.60266 16.4348 3.56523 18.3973 5.28021 17.3524C6.38806 16.6774 7.83242 17.2756 8.13847 18.5363C8.61225 20.4879 11.3877 20.4879 11.8615 18.5363C12.1676 17.2756 13.6119 16.6774 14.7198 17.3524C16.4348 18.3973 18.3973 16.4348 17.3524 14.7198C16.6774 13.6119 17.2756 12.1676 18.5363 11.8615C20.4879 11.3877 20.4879 8.61225 18.5363 8.13847C17.2756 7.83242 16.6774 6.38806 17.3524 5.28021C18.3973 3.56523 16.4348 1.60266 14.7198 2.64761C13.6119 3.32264 12.1676 2.72437 11.8615 1.46368ZM10 13.75C12.0711 13.75 13.75 12.0711 13.75 10C13.75 7.92893 12.0711 6.25 10 6.25C7.92893 6.25 6.25 7.92893 6.25 10C6.25 12.0711 7.92893 13.75 10 13.75Z" fill="black"/></svg>
                         <span>Pengaturan</span>
                     </a></li>
@@ -69,18 +66,55 @@ icon sudah sesuai tapi untuk tulisan side bar masih perlu disesuaikan di css
         </div>
 
         <div class="header-right">
-            <button class="notification-btn" onclick="window.location.href='notification.html'">
+            <button class="notification-btn">
                 <i class="fa-regular fa-bell"></i>
             </button>
 
-            <div class="user-profile" onclick="window.location.href='profile.html'">
+            <div class="user-profile" onclick="window.location.href='profile.html'"">
                 <img src="https://ui-avatars.com/api/?name=Admin+PLN&background=random" alt="User Profile">
             </div>
         </div>
     </header>
 
-    <div class="content-body" style="padding: 0 30px;">
-        <p style="color: #A3AED0; margin-top: 20px;">Konten dashboard akan dimuat di sini...</p>
+    <div class="content-wrapper" style="align-items: flex-start;"><div style="width: 100%; max-width: 1100px;">
+        <h2 style="font-size: 25px; font-weight: 800; color: #000; margin-bottom: 20px; text-transform: uppercase;">NOTIFIKASI</h2>
+        <div class="notif-search-wrapper">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            <input type="text" class="notif-search-input" placeholder="Cari Notifikasi...">
+        </div>
+    
+    
+    <div class="notification-list-page">
+        <div class="notif-row">
+            <div class="notif-icon-large alert">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+            <div class="notif-content">
+                <p class="notif-status">[STATUS: SIAGA]</p>
+                <p class="notif-msg">Perangkat AC Ruang Meeting menunjukkan konsumsi arus tidak stabil. Periksa unit untuk mencegah kerusakan!</p>
+            </div>
+            <div class="notif-time">10:45 WIB</div>
+            </div>
+
+            <div class="notif-row">
+                <div class="notif-icon-large success">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+                <div class="notif-content">
+                                <p class="notif-status">[STATUS: NORMAL]</p>
+                    <p class="notif-msg">Semua parameter listrik stabil. Seluruh perangkat IoT beroperasi normal tanpa deteksi gangguan teknis.</p>
+                </div>
+                <div class="notif-time">10:00 WIB</div>
+            </div>
+                        <div class="notif-row border-none"> <div class="notif-icon-large alert">
+                                <i class="fa-solid fa-triangle-exclamation"></i>
+                            </div>
+                            <div class="notif-content">
+                                <p class="notif-status">[STATUS: SIAGA]</p>
+                                <p class="notif-msg">Perangkat AC Ruang Meeting menunjukkan konsumsi arus tidak stabil. Periksa unit untuk mencegah kerusakan!</p>
+                            </div>
+                            <div class="notif-time">09:00 WIB</div>
+                        </div>
     </div>
         </main>
     </div>
