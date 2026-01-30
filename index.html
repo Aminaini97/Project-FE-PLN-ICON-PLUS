@@ -87,3 +87,31 @@ icon sudah sesuai tapi untuk tulisan side bar masih perlu disesuaikan di css
     <script src="script.js"></script>
 </body>
 </html>
+<!-- untuk tes login dulu, nanti dipindah ke script -->
+<script>
+    // 1. CEK KEAMANAN (Proteksi Halaman)
+    const token = localStorage.getItem('authToken') || sessionStorage.getItem('authToken');
+    
+    if (!token) {
+        alert("Anda belum login! Mengalihkan...");
+        window.location.href = 'login.html'; // Tendang balik ke login
+    }
+
+    // 2. TAMPILKAN DATA USER
+    const username = localStorage.getItem('username');
+    const companyName = localStorage.getItem('companyName');
+
+    if (username) document.getElementById('displayUsername').innerText = username;
+    if (companyName) document.getElementById('displayCompany').innerText = companyName;
+
+    // 3. LOGIC LOGOUT
+    document.getElementById('btnLogout').addEventListener('click', function() {
+        // Hapus semua jejak login
+        localStorage.removeItem('authToken');
+        localStorage.removeItem('username');
+        localStorage.removeItem('companyName');
+        
+        // Balik ke halaman login
+        window.location.href = 'login.html';
+    });
+</script>

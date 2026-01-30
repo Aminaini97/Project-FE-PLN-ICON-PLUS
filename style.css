@@ -229,209 +229,269 @@ header {
 /* =========================================
    5. HALAMAN AUTH (REGISTER KHUSUS)
    ========================================= */
-
-/* Body khusus halaman Auth */
-body.auth-body {
-    background-color: #E0E0E0; /* Background Abu-abu Luar sesuai desain */
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-/* Header khusus Auth */
-.auth-header {
-    background-color: #FFFFFF;
-    height: 77px;
-    padding: 0 16px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    /* Tidak pakai position fixed, biar layout mengalir ke bawah */
-}
-
-body.login-page .form-group {
-    margin-bottom: 24px; /* Ini akan menimpa 16px yang diatas */
-}
-
-/* --- Penyesuaian Logo Khusus di Header Register --- */
-/* 1. Kunci Wadahnya */
-.auth-header .logo {
-    /* 1. Matikan margin bawah bekas Sidebar */
-    margin-bottom: 0; 
-    
-    /* 2. Pastikan ukurannya pas */
-    width: 155px; /* Sama kayak sidebar */
-    height: 50px;
-}
-
-/* 2. Kunci Gambarnya */
-.auth-header .logo img {
-    width: 100% !important; /* Ikuti lebar wadahnya (155px) */
-    height: 100% !important; /* Ikuti tinggi wadahnya (50px) */
-    object-fit: contain; /* Pastikan gambar proporsional*/
-    max-width: 155px; /* Jaga-jaga biar gak lebih dari 155px */
-}
-
-/* Penyesuaian Judul di Kanan */
-.auth-header .header-title h1 {
-    font-size: 20px;
-    font-weight: 800; /* Bold tebal */
-    color: #000000;
-    text-transform: uppercase;
-    text-align: right; /* Rata kanan */
-}
-
-/* Responsif untuk HP (Opsional) */
-@media screen and (max-width: 768px) {
-    .auth-header {
-        padding: 0 20px; /* Padding lebih kecil di HP */
-    }
-    
-    .auth-header .header-title h1 {
-        font-size: 14px; /* Huruf mengecil di HP biar muat */
-    }
-    
-    .auth-header .logo {
-        width: 120px; /* Logo mengecil dikit */
-    }
-}
-
-/* Area konten di bawah header */
-.auth-content {
-    flex: 1; /* Mengisi sisa layar */
+/* Reset Body: Full Screen & Background Biru */
+body.auth-page {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Roboto', sans-serif;
+    /* Background Full Biru Gradient */
+    background: linear-gradient(135deg, #006CBF 0%, #004D8C 100%);
+    overflow-x: hidden; /* Hilangkan scroll horizontal */
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 40px;
 }
 
-/* Kartu Putih */
-.auth-card {
-    background-color: #FFFFFF;
-    width: 100%;
-    max-width: 600px; /* Lebih lebar dikit karena ada 2 kolom */
-    padding: 50px;
-    border-radius: 12px;
-    text-align: center;
-    box-shadow: 0px 4px 20px rgba(0,0,0,0.05);
-}
-
-.auth-title {
-    font-size: 28px;
-    font-weight: 700;
-    margin-bottom: 40px;
-    color: #000000;
-}
-
-/* --- GRID SYSTEM (Kiri Kanan) --- */
-.form-row {
+/* Container Utama untuk menata posisi Kiri (Teks) & Kanan (Card) */
+.auth-page .auth-container-full {
     display: flex;
-    gap: 20px; /* Jarak antar kolom Nama Perusahaan & Email */
-    margin-bottom: 0;
-}
-
-.half-width {
-    width: 50%; /* Membagi ruang jadi dua */
-}
-
-/* --- INPUT FIELD STYLING (Sesuai Desain) --- */
-.form-group {
-    text-align: left;
-    margin-bottom: 16px;
-}
-
-.form-group label {
-    display: block;
-    font-size: 13px;
-    font-weight: 500;
-    margin-bottom: 8px;
-    color: #333;
-}
-
-/* Desain Input */
-.input-field {
     width: 100%;
-    padding: 12px 15px;
-    background-color: #F2F4F8; /* Warna background input abu muda */
-    border: 1px solid transparent; /* Tidak ada border */
+    max-width: 1200px; /* Batas lebar konten agar rapi di layar lebar */
+    height: 90vh; /* Tinggi area konten 90% dari layar */
+    align-items: center;
+    justify-content: space-between; /* Pisahkan kiri dan kanan */
+    padding: 0 40px;
+}
+
+/* --- BAGIAN KIRI (TEKS & LOGO) --- */
+.auth-page .auth-left-content {
+    flex: 1; /* Mengambil sisa ruang */
+    color: white;
+    padding-right: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.auth-page .logo-hero {
+    height: 70px;
+    width: auto;
+    background: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    align-self: flex-start; /* Logo rata kiri */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.auth-page .auth-left-content h1 {
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 15px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+/* --- BAGIAN KANAN (KOTAK PUTIH / CARD) --- */
+.auth-page .auth-right-card {
+    width: 550px; /* Lebar Kotak Putih Tetap */
+    height: 850px; /* Tinggi Kotak Putih Tetap */
+    background-color: #FFFFFF;
+    border-radius: 10px; /* Sudut membulat */
+    padding: 25px 35px;
+    box-shadow: 0 10px 10px rgba(0,0,0,0.2); /* Bayangan halus biar ngambang */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    /* Agar bisa discroll jika formnya kepanjangan melebihi layar */
+    max-height: 95vh; 
+    overflow-y: auto; 
+}
+
+.auth-page .form-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #333;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* --- FORM STYLING KHUSUS AUTH --- */
+.auth-page .form-group {
+    margin-bottom: 6px;
+}
+
+.auth-page .form-group label {
+    display: block;
+    font-size: 12px;
+    color: #555;
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+
+.auth-page .input-field {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
     font-size: 14px;
     outline: none;
     transition: all 0.3s;
-    border-bottom: 2px solid #C5C5C5;
-    /* Opsional: Sudut atas melengkung biar lebih halus */
-    border-radius: 8px 8px 0 0; 
+    background-color: #FAFAFA;
 }
 
-/* Wrapper Password biar ikon mata ada di dalam */
-.password-wrapper {
+.auth-page .input-field:focus {
+    border-color: #006CBF;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 0 3px rgba(0, 108, 191, 0.1);
+}
+
+.auth-page .input-field::placeholder {
+    color: #bbb;
+}
+
+
+/* Helper Text */
+.auth-page .helper-text {
+    font-size: 11px;
+    color: #888;
+    margin-top: 4px;
+}
+
+/* Password Eye */
+.auth-page .password-wrapper {
     position: relative;
 }
-
-.toggle-password {
+.auth-page .toggle-password {
     position: absolute;
-    right: 15px;
+    right: 12px;
     top: 50%;
     transform: translateY(-50%);
-    cursor: pointer;
     color: #888;
-    z-index: 2;
+    cursor: pointer;
 }
 
-/* --- TOMBOL DAFTAR --- */
-.auth-button {
+/* Divider Line */
+.auth-page .divider {
+    border: 0;
+    border-top: 1px solid #EEE;
+    margin: 20px 0;
+}
+
+/* Tombol Daftar */
+.auth-page .btn-primary-dark {
     width: 100%;
-    background-color: #1B1B1B; /* Hitam pekat */
-    color: #FFFFFF;
     padding: 14px;
+    background-color: #0F172A; /* Warna Navy Gelap */
+    color: white;
     border: none;
-    font-weight: 600;
+    border-radius: 8px;
     font-size: 15px;
+    font-weight: 600;
     cursor: pointer;
-    margin-top: 0px;
-    margin-bottom: 16px;
+    margin-top: 10px;
+    transition: background 0.3s;
 }
 
-.auth-button:hover {
-    background-color: #333;
+.auth-page .btn-primary-dark:hover {
+    background-color: #000;
+    transform: translateY(-1px);
 }
 
-.auth-footer {
+.auth-page .btn-primary-dark:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Footer Link */
+.auth-page .auth-footer {
+    text-align: center;
     margin-top: 20px;
-    font-size: 13px;
-    color: #000000;
 }
 
-.auth-options {
-    display: flex;
-    justify-content: space-between; /* Satu di kiri, satu di kanan */
-    align-items: center;
-    margin-bottom: 24px; /* Jarak ke tombol Masuk */
-    font-size: 13px;
-}
-
-/* Style Checkbox "Remember Me" */
-.remember-me {
-    display: flex;
-    align-items: center;
-    gap: 8px; /* Jarak kotak centang ke teks */
-    color: #555;
-    cursor: pointer;
-}
-
-.remember-me input {
-    cursor: pointer;
-}
-
-/* Link Lupa Password */
-.forgot-password {
+.auth-page .auth-footer a {
+    color: #006CBF;
+    font-size: 14px;
     text-decoration: none;
-    color: #000000; /* Hitam */
     font-weight: 600;
 }
-
-.forgot-password:hover {
-    text-decoration: underline; /* Garis bawah pas di-hover */
+.auth-page .auth-footer a:hover {
+    text-decoration: underline;
 }
+
+/* =========================================
+   KHUSUS LOGIN (MARGIN LEBIH LEGA)
+   ========================================= */
+
+/* Karena di Register kita pake margin-bottom: 10px (sempit),
+   di Login kita longgarkan jadi 20px biar enak dilihat karena formnya dikit.
+*/
+
+.auth-page .login-mode .form-group {
+    margin-bottom: 25px !important; /* Jarak antar input lebih jauh */
+}
+
+.auth-page .login-mode .form-title {
+    font-size: 24px; /* Judul lebih besar dikit dibanding register */
+}
+
+.auth-page .login-mode .btn-primary-dark {
+    height: 45px; /* Tombol lebih tinggi/gagah dikit */
+    font-size: 15px;
+}
+
+/* Helper text di login agak beda jaraknya */
+.auth-page .login-mode .helper-text {
+    margin-bottom: 5px;
+    color: #888;
+    line-height: 1.4;
+}
+
+/* Pastikan inputnya tetap tinggi 35px (konsisten sama register) 
+   atau mau dibesarin dikit jadi 40px juga boleh khusus login */
+.auth-page .login-mode .input-field {
+    height: 40px; /* Opsional: Input login agak lebih tinggi biar nyaman */
+}
+
+/* --- RESPONSIF HP (Mobile) --- */
+@media (max-width: 900px) {
+    body.auth-page {
+        height: auto; /* Biarkan tinggi otomatis */
+        min-height: 100vh;
+        align-items: flex-start; /* Mulai dari atas */
+        padding: 20px;
+    }
+
+    .auth-page .auth-container-full {
+        flex-direction: column; /* Tumpuk atas bawah */
+        height: auto;
+        padding: 0;
+    }
+
+    /* Bagian Kiri (Logo) di HP */
+    .auth-page .auth-left-content {
+        padding-right: 0;
+        margin-bottom: 30px;
+        text-align: center;
+        align-items: center;
+    }
+
+    .auth-page .logo-hero {
+        align-self: center; /* Logo tengah */
+    }
+
+    .auth-page .auth-left-content h1 {
+        font-size: 28px; /* Kecilin font */
+    }
+
+    /* Kartu Form di HP */
+    .auth-page .auth-right-card {
+        width: 100%;
+        max-width: 100%;
+        padding: 30px 20px;
+        max-height: none; /* Hilangkan batas tinggi scroll di HP */
+        overflow-y: visible;
+    }
+}
+
+.message-box { text-align: center; margin-top: 15px; font-size: 14px; font-weight: bold; }
+        .success { color: green; }
+        .error { color: red; }
 
 /* Profile page */
 /* =========================================
