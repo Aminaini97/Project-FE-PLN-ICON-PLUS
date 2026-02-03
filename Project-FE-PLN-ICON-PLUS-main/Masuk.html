@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masuk - Energy Management Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="auth-page">
+
+    <div class="auth-container-full">
+        
+        <div class="auth-left-content" >
+            <img src="assets/LOGO PLN ICONPLUS PUTIH.png" alt="Logo PLN Icon Plus" class="logo-hero">
+            <h2 style="text-align: left; margin-top: 0; font-size: 17.5px;">ENERGY MANAGEMENT PLATFORM</h2>
+        </div>
+
+        <div class="auth-right-card login-mode">
+            
+            <div style="text-align: center; margin-bottom: 30px;">
+                <h2 class="form-title" style="margin-bottom: 5px;">Selamat Datang Kembali!</h2>
+                <p style="color: #616D7C; font-size: 12px;">Silahkan masuk untuk melanjutkan</p>
+            </div>
+
+            <form id="loginForm">
+                
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" id="username" class="input-field" placeholder="Masukkan Username..." required>
+                </div>
+
+                <div class="form-group">
+                    <label>Kata Sandi</label>
+                    <div class="password-wrapper">
+                        <input type="password" id="password" class="input-field" placeholder="Masukkan Kata Sandi..." required>
+                        <i class="fa-regular fa-eye toggle-password"></i>
+                    </div>
+                    
+                    <p class="helper-text">Kata sandi Anda harus paling tidak 6 karakter dan harus menyertakan kombinasi angka, huruf, dan karakter khusus (!@$%)</p>
+                    
+                    <div style="text-align: right; margin-top: 10px;">
+                        <a href="Lupa Kata Sandi.html" style="font-size: 12px; color: #192434; font-weight: 500; text-decoration: none;">Lupa kata sandi?</a>
+                    </div>
+                </div>
+
+                <button type="submit" id="btnLogin" class="btn-primary-dark" style="margin-top: 10px; font-size: 12px;">Masuk</button>
+
+                <p id="loginMessage" class="message-box" style="margin-top: 15px;"></p>
+
+                <div class="auth-footer" style="border-top: 1px solid #eee; padding-top: 20px; margin-top: 30px;">
+                    <p style="color: #616D7C; font-size: 12px;">Belum punya akun? <a href="Daftar.html" style="color: #00B0F2; font-size: 12px; font-weight: 500;">Daftar sekarang</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

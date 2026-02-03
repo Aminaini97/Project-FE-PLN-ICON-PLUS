@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Akun - Energy Management Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="auth-page">
+
+    <div class="auth-container-full">
+        
+        <div class="auth-left-content">
+            <img src="assets/LOGO PLN ICONPLUS PUTIH.png" alt="Logo PLN Icon Plus" class="logo-hero">
+            <h2 style="text-align: left; margin-top: 0; font-size: 17.5px;">ENERGY MANAGEMENT PLATFORM</h2>
+        </div>
+
+        <div class="auth-right-card">
+            <h2 class="form-title">Daftar Akun</h2>
+
+            <form id="registerForm">
+                
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" id="username" class="input-field" placeholder="Masukkan Username..." required>
+                </div>
+
+                <div class="form-group">
+                    <label>Kata Sandi</label>
+                    <div class="password-wrapper">
+                        <input type="password" id="password" class="input-field" placeholder="Masukkan Kata Sandi..." required>
+                        <i class="fa-regular fa-eye toggle-password"></i>
+                    </div>
+                    <p class="helper-text">Kata sandi Anda harus paling tidak 6 karakter dan harus menyertakan kombinasi angka, huruf, dan karakter khusus (!$@%)</p>
+                </div>
+
+                <div class="form-group">
+                    <label>Ulangi Kata Sandi</label>
+                    <div class="password-wrapper">
+                        <input type="password" id="confirmPassword" class="input-field" placeholder="Masukkan Ulang Kata Sandi..." required>
+                        <i class="fa-regular fa-eye toggle-password"></i>
+                    </div>
+                </div>
+
+                <hr class="divider">
+
+                <div class="form-group">
+                    <label>Nama Perusahaan</label>
+                    <input type="text" id="companyName" class="input-field" placeholder="Masukkan Nama Perusahaan..." required>
+                </div>
+
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="email" class="input-field" placeholder="Masukkan Email..." required>
+                </div>
+
+                <div class="form-group">
+                    <label>Nomor Telepon</label>
+                    <input type="tel" id="phoneNumber" class="input-field" placeholder="Masukkan Nomor Telepon...">
+                </div>
+
+                <div class="form-group">
+                    <label>Alamat Perusahaan</label>
+                    <input type="text" id="address" class="input-field" placeholder="Masukkan Alamat Perusahaan..." required>
+                </div>
+
+                <button type="submit" id="btnSubmit" class="btn-primary-dark" style="margin-top: 10px; font-size: 12px;" >Daftar</button>
+
+                <p id="message" class="message-box" style="margin-top: 15px;"></p>
+
+                <div class="auth-footer" style="border-top: 1px solid #eee; padding-top: 20px; margin-top: 30px;">
+                    <a style="color: #00B0F2; font-size: 12px; font-weight: 500;"  href="Masuk.html">Sudah Punya Akun?</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/auth.js"></script> 
+</body>
+</html>

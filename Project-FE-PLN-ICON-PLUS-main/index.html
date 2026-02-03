@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - ENERGY MANAGEMENT PLATFORM</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <header class="auth-header-top">
+        <div class="header-container-flex">
+            <div class="header-left-group">
+                <div class="logo-compact">
+                    <img src="assets/logo_PLN_Icon_plus.png" alt="Logo PLN Icon Plus">
+                </div>
+                <div class="title-left-aligned">
+                    <h1>ENERGY MANAGEMENT PLATFORM</h1>
+                </div>
+            </div>
+
+            <div class="header-right-group">
+                <div class="notification-wrapper">
+                    <a href="Notifikasi.html" class="notification-btn">
+                        <i class="fa-solid fa-bell"></i>
+                        <span class="badge">9</span>
+                    </a>
+                </div>
+                <div class="user-profile-wrapper">
+                    <div class="user-info">
+                        <span class="user-initials">AP</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="header-line">
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <nav class="sidebar-menu">
+                <ul>
+                    <li class="active">
+                        <a href="index.html">
+                            <i class="fa-solid fa-house"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li><a href="#"><i class="fa-solid fa-chart-line"></i> <span>Monitoring & Analisis</span></a></li>
+                    <li><a href="#"><i class="fa-solid fa-microchip"></i> <span>Manajemen Perangkat</span></a></li>
+                    <li><a href="#"><i class="fa-solid fa-file-invoice-dollar"></i> <span>Perkiraan Biaya</span></a></li>
+                    <li><a href="#"><i class="fa-solid fa-wand-magic-sparkles"></i> <span>Asisten AI</span></a></li>
+                    <li><a href="#"><i class="fa-solid fa-gear"></i> <span>Pengaturan</span></a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <div class="dashboard-page-container">
+                <h2 class="page-title">DASHBOARD</h2>
+                
+                <div id="latestNotifBanner"></div>
+
+                <div class="dashboard-content-wrapper">
+                    
+                    <div class="left-main-column">
+                        
+                        <div class="filter-export-container">
+                            <div class="filter-group">
+                                <div class="custom-dropdown" id="filterWaktu">
+                                    <button class="dropdown-trigger">Waktu <i class="fa-solid fa-caret-down"></i></button>
+                                    <ul class="dropdown-menu">
+                                        <li data-value="hari">Hari Ini</li>
+                                        <li data-value="minggu">Minggu Ini</li>
+                                        <li data-value="bulan">Bulan Ini</li>
+                                    </ul>
+                                </div>
+                                <div class="custom-dropdown" id="filterArea">
+                                    <button class="dropdown-trigger">Area <i class="fa-solid fa-caret-down"></i></button>
+                                    <ul class="dropdown-menu">
+                                        <li data-value="kantor">Kantor Pusat</li>
+                                        <li data-value="ruang-meeting">Ruang Meeting</li>
+                                        <li data-value="lab">Laboratorium</li>
+                                    </ul>
+                                </div>
+                                <div class="custom-dropdown" id="filterKategori">
+                                    <button class="dropdown-trigger">Kategori Perangkat <i class="fa-solid fa-caret-down"></i></button>
+                                    <ul class="dropdown-menu">
+                                        <li data-value="ac">AC</li>
+                                        <li data-value="lampu">Lampu</li>
+                                        <li data-value="elektronik">Elektronik</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="export-group">
+                                <div class="custom-dropdown" id="exportMenu">
+                                    <button class="export-trigger">
+                                        <i class="fa-solid fa-upload"></i> Ekspor <i class="fa-solid fa-caret-down"></i>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-right">
+                                        <li onclick="handleExport('PDF')"><i class="fa-solid fa-file-pdf"></i> PDF (.pdf)</li>
+                                        <li onclick="handleExport('XLSX')"><i class="fa-solid fa-file-excel"></i> Excel (.xlsx)</li>
+                                        <li onclick="handleExport('CSV')"><i class="fa-solid fa-file-csv"></i> CSV (.csv)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="main-chart-card">
+                            <div class="chart-header">
+                                <h3 class="chart-title">Konsumsi Energi</h3>
+                            </div>
+                            <div class="main-line-chart-container">
+                                <canvas id="mainEnergyChart"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="monitoring-bottom-row">
+                            <div class="info-card-detail">
+                                <div class="card-header-flex">
+                                    <h3 class="card-title-sm">Monitoring Kelistrikan</h3>
+                                    <i class="fa-solid fa-arrow-right icon-link-sm"></i>
+                                </div>
+                                <div class="parameter-list">
+                                    <div class="parameter-item">
+                                        <div class="item-label"><span>Arus</span> <span class="unit-text">Satuan Parameter</span></div>
+                                        <div class="progress-bar"><div class="progress-fill" style="width: 75%;"></div></div>
+                                    </div>
+                                    <div class="parameter-item">
+                                        <div class="item-label"><span>Tegangan</span> <span class="unit-text">Satuan Parameter</span></div>
+                                        <div class="progress-bar"><div class="progress-fill" style="width: 45%;"></div></div>
+                                    </div>
+                                    <div class="parameter-item">
+                                        <div class="item-label"><span>Daya</span> <span class="unit-text">Satuan Parameter</span></div>
+                                        <div class="progress-bar"><div class="progress-fill" style="width: 80%;"></div></div>
+                                    </div>
+                                    <div class="parameter-item">
+                                        <div class="item-label"><span>Faktor Daya</span> <span class="unit-text">Satuan Parameter</span></div>
+                                        <div class="progress-bar"><div class="progress-fill" style="width: 90%;"></div></div>
+                                    </div>
+                                    <div class="parameter-item">
+                                        <div class="item-label"><span>Beban Puncak</span> <span class="unit-text">Satuan Parameter</span></div>
+                                        <div class="progress-bar"><div class="progress-fill" style="width: 55%;"></div></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="info-card-detail">
+                                <div class="card-header-flex">
+                                    <h3 class="card-title-sm">Manajemen Perangkat</h3>
+                                    <i class="fa-solid fa-arrow-right icon-link-sm"></i>
+                                </div>
+                                <div class="parameter-list">
+                                    <div class="parameter-item">
+                                        <div class="item-label"><span>AC</span> <span class="count-text">2 Perangkat</span></div>
+                                        <div class="progress-bar"><div class="progress-fill" style="width: 40%;"></div></div>
+                                    </div>
+                                    <div class="parameter-item">
+                                        <div class="item-label"><span>TV</span> <span class="count-text">1 Perangkat</span></div>
+                                        <div class="progress-bar"><div class="progress-fill" style="width: 20%;"></div></div>
+                                    </div>
+                                    <div class="parameter-item">
+                                        <div class="item-label"><span>Lampu</span> <span class="count-text">2 Perangkat</span></div>
+                                        <div class="progress-bar"><div class="progress-fill" style="width: 60%;"></div></div>
+                                    </div>
+                                    <div class="parameter-item">
+                                        <div class="item-label"><span>Proyektor</span> <span class="count-text">1 Perangkat</span></div>
+                                        <div class="progress-bar"><div class="progress-fill" style="width: 30%;"></div></div>
+                                    </div>
+                                    <div class="parameter-item">
+                                        <div class="item-label"><span>Stop Kontak</span> <span class="count-text">2 Perangkat</span></div>
+                                        <div class="progress-bar"><div class="progress-fill" style="width: 50%;"></div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> </div>
+
+                    <div class="right-widget-column">
+                        <div class="datetime-card">
+                            <p class="datetime-label">Tanggal & Waktu Saat Ini</p>
+                            <div class="time-display">
+                                <h2 id="clockText">20:00</h2>
+                                <span class="timezone">WIB</span>
+                            </div>
+                            <p id="dateText" class="date-display">Senin, 2 Februari 2026</p>
+                        </div>
+
+                        <div class="energy-consumption-card">
+                            <div class="card-header-column">
+                                <p class="card-label">Konsumsi Energi Saat Ini</p>
+                                <button class="refresh-btn" onclick="updateEnergyData()">
+                                    Refresh <i class="fa-solid fa-rotate"></i>
+                                </button>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="energyPieChart"></canvas>
+                                <div class="chart-center-text">
+                                    <h2 id="energyValue">100</h2>
+                                    <span>kWh</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cost-prediction-card">
+                            <div class="card-header-flex">
+                                <div class="header-text">
+                                    <p class="card-label">Perkiraan Biaya</p>
+                                    <span class="sub-label">Mulai 01/01/2026 00:01 WIB</span>
+                                </div>
+                                <a href="Perkiraan-Biaya.html" class="icon-link"><i class="fa-solid fa-arrow-right"></i></a>
+                            </div>
+                            <div class="cost-display-center">
+                                <h1 id="totalCost">Rp 144.470,-</h1>
+                            </div>
+                            <div class="cost-footer">
+                                <span class="trend-up">
+                                    <i class="fa-solid fa-arrow-up"></i> +10% dari bulan lalu
+                                </span>
+                            </div>
+                        </div>
+                    </div> </div> </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/profile.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

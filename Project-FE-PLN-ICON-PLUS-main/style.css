@@ -1,0 +1,1300 @@
+/* =========================================
+   1. VARIABLES 
+   ========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+:root {
+    --primary-color: #00B0F2;      
+    --secondary-color: #192434; 
+    --text-grey: #616D7C;        
+    --bg-body: #FFFFFF;          
+    --bg-white: #FFFFFF;          
+    --border-radius: 10px;         
+    --transition-speed: 0.3s;
+    --sidebar-width: 200px;     
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: var(--bg-body);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column; 
+    margin: 0;
+}
+
+/* =========================================
+   2. HEADER
+   ========================================= */
+.auth-header-top {
+    width: 100%;
+    background-color: var(--bg-white);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content:间-between;
+    padding: 0 40px; 
+    height: 60px;
+    background-color: var(--bg-white);
+}
+
+.logo-section {
+    flex: 0 0 auto;
+}
+
+.logo-section img {
+    height: 40px;
+    width: auto;
+}
+
+.title-section {
+    flex: 1;
+    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.title-section h1 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--primary-color); 
+    letter-spacing: 0.5px;
+    margin: 0;
+    padding-right: 10px;
+}
+
+.header-line {
+    border: 0;
+    border-top: 2px solid #E0E0E0; 
+    margin: 0;
+    width: 100%;
+}
+
+.header-container-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px; 
+    height: 60px;
+    background-color: var(--bg-white);
+    
+}
+
+.header-left-group, .header-right-group {
+    display: flex;
+    align-items: center;
+}
+
+.logo-compact {
+    flex: 0 0 auto;
+    margin-right: 55px; /* Memberikan jarak antara logo dan judul */
+}
+
+.logo-compact img {
+    height: 40px;
+    width: auto;
+}
+
+.title-left-aligned {
+    flex: 0 0 auto; /* Menghapus flex: 1 agar tidak menarik judul ke kanan */
+}
+
+.title-left-aligned h1 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--primary-color); /* Warna Navy gelap #192434 */
+    margin: 0;
+}
+
+/* --- NOTIFIKASI & PROFIL (KANAN) --- */
+.header-right-group {
+    gap: 10px; /* Jarak antara lonceng dan profil */
+}
+
+.notification-wrapper {
+    position: relative;
+    cursor: pointer;
+}
+
+.notification-btn {
+    text-decoration: none;
+    background: var(--bg-white);
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    color: var(--secondary-color);
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.notification-btn .badge {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    background: var(--primary-color);
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 2px 5px;
+    border-radius: 10px;
+    border: 2px solid white;
+}
+
+/* --- USER PROFILE CIRCLE --- */
+.user-profile-wrapper {
+    cursor: pointer;
+}
+
+.user-info {
+    width: 35px;
+    height: 35px;
+    background: var(--secondary-color); /* Warna biru profil */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-initials {
+    color: var(--bg-body);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+/* =========================================
+   3. SIDEBAR NAVIGATION
+   ========================================= */
+.container {
+    display: flex; 
+    height: calc(100vh - 62px); 
+    overflow: hidden; 
+}
+.sidebar {
+    width: var(--sidebar-width);
+    background-color: var(--bg-white);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+
+    position: fixed;
+    top: 60px; 
+    left: 0;
+    height: calc(100vh - 60px); 
+    
+    border-right: 1px solid #E0E4E8;
+    z-index: 100;
+    overflow-y: auto;
+}
+
+.sidebar-logo {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.sidebar-logo img {
+    width: 160px;
+    height: auto;
+}
+
+.sidebar-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-menu li {
+    margin-bottom: 0px;
+}
+
+.sidebar-menu a {
+    display: flex;
+    align-items: center;
+    padding: 10px 10px;
+    text-decoration: none;
+    color: var(--secondary-color);
+    border-radius: 12px;
+    transition: var(--transition);
+}
+
+.sidebar-menu a i {
+    font-size: 15px;
+    width: 15px;
+    margin-right: 10px;
+    text-align: left;
+    transition: var(--transition);
+}
+
+.sidebar-menu a span {
+    flex: 1;
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+    display: block;
+    width: 100%;
+}
+
+.sidebar-menu a:hover {
+    background-color: var(--bg-white);
+    color: var(--primary-color);
+}
+
+.sidebar-menu a:hover i {
+    color: var(--primary-color);
+}
+
+.sidebar-menu li.active a {
+    background-color: var(--bg-white);
+    color: var(--primary-color);
+}
+
+.sidebar-menu li.active a i {
+    color: var(--primary-blue);
+}
+
+@media (max-width: 992px) {
+    .sidebar {
+        width: 80px;
+        padding: 40px 10px;
+    }
+    .sidebar-logo img {
+        width: 50px;
+    }
+    .sidebar-menu a span {
+        display: none;
+    }
+    .sidebar-menu a i {
+        margin-right: 0;
+        width: 100%;
+    }
+}
+
+/* =========================================
+   4. FORMS & BUTTONS
+   ========================================= */
+.form-title {
+    color: var(--secondary-color);
+    font-size: 24px;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-size: 12px;
+    color: var(--secondary-color);
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.input-field {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 13px;
+    transition: all var(--transition-speed);
+}
+
+.input-field:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 176, 242, 0.2);
+}
+
+.btn-primary-dark {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--secondary-color);
+    color: var(--bg-white);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 12px;
+    transition: background var(--transition-speed);
+}
+
+.btn-primary-dark:hover {
+    background-color: var(--primary-color);
+}
+
+/* =========================================
+   5. AUTHENTICATION PAGES (Login, Reg, Forgot)
+   ========================================= */
+.main-content-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 20px;
+    width: 100%;
+}
+
+.auth-page {
+    background-color: var(--bg-body);
+    height: 100vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; 
+}
+
+.auth-container-full {
+    display: flex;
+    flex-direction: row;
+    width: 1000px;
+    max-width: 95%;
+    height: 90vh; 
+    background: var(--bg-white);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08); 
+    border: 1px solid #f0f0f0; 
+}
+
+.auth-left-content {
+    flex: 1;
+    background-color: var(--secondary-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    color: var(--bg-white);
+    text-align: center;
+}
+
+.logo-hero {
+    width: 180px;
+    margin-bottom: 20px;
+}
+
+.auth-left-content h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--primary-color);
+}
+
+.auth-right-card {
+    flex: 1.3;
+    padding: 50px;
+    background: var(--bg-white);
+    overflow-y: auto; 
+    height: 100%;    
+}
+
+.auth-right-card::-webkit-scrollbar {
+    width: 6px;
+}
+.auth-right-card::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+.auth-right-card::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+.auth-right-card::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}
+
+.password-wrapper {
+    position: relative;
+}
+
+.password-wrapper .toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: var(--text-grey);
+}
+
+.helper-text {
+    font-size: 11px;
+    color: var(--text-grey);
+    margin-top: 5px;
+    line-height: 1.4;
+}
+
+.divider {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 25px 0;
+}
+
+.auth-footer {
+    margin-top: 25px;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.auth-footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.auth-container-full {
+    display: flex;
+    width: 950px;
+    max-width: 100%;
+    background: var(--bg-white);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.auth-card {
+    background: var(--bg-white);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.auth-card {
+    background: var(--bg-white);
+    padding: 50px 40px;
+    border-radius: var(--border-radius);
+    width: 100%;
+    max-width: 480px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.auth-title {
+    color: var(--secondary-color);
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.auth-subtitle {
+    color: var(--text-grey);
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.auth-card .auth-footer {
+    margin-top: 25px;
+    border-top: none;
+    padding-top: 0;
+}
+
+.auth-card .auth-footer a {
+    color: var(--primary-color);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+/* =========================================
+   6. MODAL SYSTEM
+   ========================================= */
+.modal {
+    display: none; /* KUNCI: Biarkan ini tetap none agar tidak terbuka otomatis */
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    backdrop-filter: blur(4px);
+    
+    align-items: center; 
+    justify-content: center;
+}
+
+
+.modal-content {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    width: 650px;
+    max-width: 90%;
+    height: 600px;
+    max-height: 90%;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.modal-header h2 {
+    font-size: 20px;
+    color: #192434;
+    font-weight: 700;
+}
+
+.close-btn {
+    font-size: 28px;
+    cursor: pointer;
+    color: #A3AED0;
+}
+
+/* Form di dalam Modal */
+.form-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.form-group-modal {
+    flex: 1;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group-modal label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #192434;
+    margin-bottom: 8px;
+}
+
+.form-group-modal input, 
+.form-group-modal textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #E0E4E8;
+    border-radius: 8px;
+    font-size: 14px;
+    background: #FAFBFF;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.btn-batal {
+    padding: 10px 25px;
+    background: white;
+    border: 1px solid #E0E4E8;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #A3AED0;
+}
+
+.btn-simpan {
+    padding: 10px 25px;
+    background: #192434; /* Warna gelap sesuai gambar */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* Styling khusus konten modal sukses */
+.modal-content-success {
+    background-color: #ffffff;
+    border-radius: 10px;
+    width: 400px; /* Lebih kecil dari modal profil */
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    animation: zoomIn 0.2s ease-out;
+    position: relative;
+    padding: 60px;
+}
+
+.success-icon {
+    font-size: 25px;
+    color: var(--primary-color); /* Warna hijau sukses */
+    margin-bottom: 10px;
+}
+
+.modal-content-success h2 {
+    color: #192434;
+    margin-bottom: 10px;
+}
+
+.modal-content-success p {
+    color: #616D7C;
+    margin-bottom: 10px;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.close-btn-success {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    font-size: 25px;
+    color: #A3AED0;
+    cursor: pointer;
+    line-height: 1;
+    transition: 0.2s;
+}
+
+.close-btn-success:hover {
+    color: #192434;
+    transform: scale(1.1);
+}
+
+/* =========================================
+   7. NOTIFIKASI
+   ========================================= */
+.main-content {
+    flex: 1; 
+    margin-left: var(--sidebar-width); 
+    background-color: #FAFBFF; 
+}
+
+.page-title {
+    font-size: 15px; 
+    font-weight: 800;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+    text-transform: uppercase; 
+}
+
+.notif-search-box {
+    position: relative; 
+    margin-bottom: 10px;
+    width: 100%; 
+}
+
+.notif-search-box i {
+    position: absolute;
+    left: 15px; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    color: var(--text-grey);
+}
+
+.notif-search-box input {
+    width: 100%;
+    padding: 6px 12px 6px 45px; 
+    border: 1px solid #E0E4E8;
+    border-radius: 5px; 
+    font-size: 12px;
+    outline: none; 
+}
+
+/* Container Utama Daftar Pesan */
+.notif-list-wrapper {
+    background: white;
+    border: 1px solid #E0E4E8;
+    border-radius: 10px;
+}
+
+/* Baris Pesan Individual (Semua Seragam Putih) */
+.notif-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    height: 50px;
+    background-color: #FFFFFF; /* Semua latar belakang putih */
+    border-bottom: 1px solid #F0F2F5;
+    transition: background 0.2s;
+}
+
+/* Efek Hover (Opsional, agar tetap interaktif saat kursor lewat) */
+.notif-card:hover {
+    background-color: #F8F9FB; 
+}
+
+.notif-body {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex: 1; 
+}
+
+/* Warna Ikon Tetap Berbeda Sesuai Status */
+.notif-icon-box.alert {color: #E4000F; }
+.notif-icon-box.normal {color: var(--primary-color); }
+
+.notif-info {
+    flex: 1;
+}
+
+.status-label {
+    font-size: 12px;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.status-label.alert { color: #E4000F; }
+.status-label.normal { color: var(--primary-color); }
+
+.msg-text {
+    font-size: 12px;
+    color: var(--text-grey);
+    line-height: 1.5;
+    word-break: break-word; /* Mencegah teks memanjang ke samping */
+}
+
+.timestamp {
+    font-size: 11px;
+    color: var(--text-grey);
+    font-weight: 500;
+    white-space: nowrap;
+    margin-left: 20px;
+}
+
+.notification-page-container {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 60px);
+    padding: 20px;
+}
+
+.notif-header-statis {
+    flex-shrink: 0; /* Mencegah bagian ini mengecil atau tergulung */
+    background: #F4F7FE; /* Sesuaikan dengan warna background dashboard */
+    z-index: 10;
+}
+
+.notif-scroll-area {
+    flex: 1; /* Mengambil seluruh sisa ruang yang tersedia */
+    overflow-y: auto; /* Mengaktifkan scroll hanya di area ini */
+    padding-right: 5px; /* Memberi ruang agar scrollbar tidak menempel ke kartu */
+}
+
+/* Desain Scrollbar agar lebih rapi */
+.notif-scroll-area::-webkit-scrollbar {
+    width: 5px;
+}
+.notif-scroll-area::-webkit-scrollbar-thumb {
+    background: #CCCCCC;
+    border-radius: 10px;
+}
+
+
+/* =========================================
+   DASHBOARD - NOTIFIKASI
+   ========================================= */
+/* Banner Notifikasi Tunggal di Dashboard */
+.dashboard-page-container {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 60px);
+    padding: 20px;
+}
+
+.dashboard-notif-banner {
+    display: flex;
+    align-items: center;
+    gap: 12.5px;
+    padding: 10px 10px;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    margin-bottom: 5.5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    border-left: 5px solid transparent;
+}
+
+.dashboard-notif-banner.alert i {
+    color: #E4000F;
+    font-size: 15px;
+}
+
+.dashboard-notif-banner.normal i {
+    color: var(--primary-color);
+    font-size: 15px;
+}
+
+.dashboard-notif-banner p {
+    font-size: 12px;
+    color: var(--secondary-color);
+    margin: 0;
+}
+
+/* =========================================
+   DASHBOARD - DATE & TIME
+   ========================================= */
+.datetime-card {
+    background: #FFFFFF;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+
+    width: 180px;         
+    margin-left: auto;   
+    margin-bottom: 5px; 
+    display: flex;        
+    flex-direction: column;
+    text-align: left;    
+}
+
+.datetime-label {
+    font-size: 10px;
+    color: var(--text-grey);
+    font-weight: 400;
+}
+
+.time-display {
+    display: flex;
+    align-items: baseline;
+}
+
+.time-display h2 {
+    font-size: 45px; /* Ukuran jam yang besar sesuai contoh */
+    font-weight: 800;
+    color: var(--secondary-color);
+    line-height: 1;
+    margin-right: 8px;
+}
+
+.timezone {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--secondary-color);
+}
+
+.date-display {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--secondary-color);
+}
+
+.energy-consumption-card {
+    background: #FFFFFF;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    width: 180px; 
+    height: auto; /* Tinggi otomatis agar kWh tidak terpotong */
+    margin-left: auto; 
+    margin-bottom: 5px;
+    border: 1px solid #E0E4E8;
+}
+
+/* Mengatur tumpukan vertikal */
+.card-header-column {
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start; /* Rata kiri */
+    gap: 4px; /* Jarak antara teks judul dan refresh */
+    margin-bottom: 10px;
+}
+
+.card-label {
+    font-size: 5px;
+    color: var(--primary-color);
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.refresh-btn {
+    background: none;
+    border: none;
+    color: var(--text-grey);
+    font-size: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 0;
+    transition: color 0.2s;
+}
+
+.refresh-btn:hover {
+    color: var(--primary-color);
+}
+
+/* Container Chart agar pas di tengah kotak */
+.chart-container {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    aspect-ratio: 1/1;
+}
+
+.chart-center-text {
+    position: absolute;
+    top: 55%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
+}
+
+.chart-center-text h2 {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--secondary-color);
+    margin: 0;
+}
+
+.chart-center-text span {
+    font-size: 12px;
+    color: var(--secondary-color);
+    font-weight: 700;
+}
+
+.cost-prediction-card {
+    background: #FFFFFF;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    width: 180px;
+    height: 150px;
+    margin-left: auto;
+    border: 1px solid #E0E4E8;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.card-header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.card-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: #192434;
+    margin: 0;
+}
+
+.sub-label {
+    font-size: 10px;
+    color: #616D7C;
+}
+
+.icon-link {
+    color: #E0E4E8;
+    font-size: 10px;
+}
+
+.cost-display-center {
+    flex-grow: 1; 
+    display: flex;
+    align-items: center;    /* Rata tengah vertikal */
+    justify-content: center; /* Rata tengah horizontal */
+}
+
+.cost-display-center h1 {
+    font-size: 22px;
+    font-weight: 800;
+    color: #192434;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.cost-footer {
+    display: flex;
+    justify-content: flex-start;
+    padding-top: 5px;
+}
+
+.trend-up {
+    color: #00B0F2; /* Biru Icon Plus */
+    font-size: 10px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Wrapper utama yang membagi kolom kiri dan kanan */
+.dashboard-content-wrapper {
+    display: flex;
+    gap: 5px;
+    align-items: flex-start; /* Menjaga baris pertama tetap sejajar */
+    margin-top: 2px;
+}
+
+/* Kolom Kiri: Filter dan Grafik Utama */
+.left-main-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 7.5px;
+}
+
+/* Kolom Kanan: Kumpulan Widget Samping */
+.right-widget-column {
+    width: 182px;
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-export-container {
+    display: flex;
+    justify-content: flex-start; /* Diubah agar margin-left: auto bekerja optimal */
+    align-items: center;
+    margin-bottom: 0px;
+    width: 100%;
+}
+
+.filter-group {
+    display: flex;
+    gap: 5px;
+}
+
+.export-group {
+    display: flex;
+    margin-left: auto; /* Mendorong ke kanan */
+    margin-right: 0px; /* Memberi jarak tipis dengan batas kolom */
+}
+
+
+/* Base Style Dropdown */
+.custom-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-trigger, .export-trigger {
+    background-color: #FFFFFF;
+    border: 1px solid #E0E4E8;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 12px;
+    color: var(--secondary-color);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.2s;
+}
+
+.dropdown-trigger:hover, .export-trigger:hover {
+    background-color: var(--bg-body);
+    border-color: #00B0F2;
+}
+
+/* Menu Dropdown */
+.dropdown-menu {
+    position: absolute;
+    top: 110%;
+    left: 0;
+    background: white;
+    border: 1px solid var(--bg-body);
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    list-style: none;
+    padding: 5px 0;
+    min-width: 150px;
+    display: none; /* Hidden by default */
+    z-index: 1100;
+}
+
+.dropdown-menu.dropdown-right {
+    left: auto;
+    right: 0; /* Agar menu ekspor tidak keluar layar kanan */
+}
+
+.dropdown-menu li {
+    padding: 5px 10px;
+    font-size: 12px;
+    color: var(--text-grey);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.dropdown-menu li:hover {
+    background-color: #F4F7FE;
+    color: #00B0F2;
+}
+
+/* Tampilkan saat aktif */
+.custom-dropdown.active .dropdown-menu {
+    display: block;
+    animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.main-chart-card {
+    background: #FFFFFF;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border: 1px solid #E0E4E8;
+    width: 100%;
+}
+
+
+.chart-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: #192434;
+}
+
+.icon-more {
+    color: #E0E4E8;
+    cursor: pointer;
+}
+
+.main-line-chart-container {
+    height: 192px; /* Tinggi grafik sesuai proporsi dasbor */
+    width: 100%;
+    
+}
+
+/* =========================================
+   MONITORING & DEVICE MANAGEMENT SECTION 
+  
+   ========================================= */
+
+/* Baris bawah yang menampung kedua kartu secara sejajar */
+.monitoring-bottom-row {
+    display: flex;
+    gap: 5px; /* Jarak antar kartu monitoring */
+    width: 100%;
+    align-items: stretch; /* Memastikan tinggi kedua kartu selalu sama */
+}
+
+/* Gaya kartu informasi detail (Kelistrikan & Perangkat) */
+.info-card-detail {
+    flex: 1;
+    background: #FFFFFF;
+    padding: 10px 15px; /* Padding ramping agar hemat ruang */
+    border-radius: 5px;
+    border: 1px solid #E0E4E8;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    
+    /* PENGATURAN TINGGI TETAP AGAR TIDAK MELEBIHI LAYAR */
+    height: 148px; 
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header di dalam kartu (Judul + Ikon Panah) */
+.card-header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.card-title-sm {
+    font-size: 12px;
+    font-weight: 700;
+    color: #192434;
+}
+
+.icon-link-sm {
+    color: #E0E4E8;
+    font-size: 12px;
+}
+
+/* Container daftar item dengan fitur SCROLL INTERNAL */
+.parameter-list {
+    margin-top: 10px;
+    flex: 1; /* Mengambil sisa ruang di dalam kartu */
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* Jarak antar baris item */
+    
+    /* AKTIFKAN SCROLL JIKA ISI MELEBIHI TINGGI KOTAK */
+    overflow-y: auto; 
+    padding-right: 8px; /* Ruang agar teks tidak tertutup scrollbar */
+}
+
+/* Gaya Item (Label + Progress Bar) */
+.parameter-item {
+    width: 100%;
+}
+
+.item-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: #192434;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.unit-text, .count-text {
+    color: #A3AED0; /* Warna abu-abu untuk teks keterangan */
+}
+
+/* Gaya Bilah Kemajuan (Progress Bar) */
+.progress-bar {
+    width: 100%;
+    height: 4px; /* Tinggi bar yang minimalis */
+    background: #F0F2F5;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: #00B0F2; /* Warna biru konsisten dengan brand */
+    border-radius: 10px;
+    transition: width 0.5s ease-in-out; /* Animasi saat data di-refresh */
+}
+
+/* =========================================
+   CUSTOM SCROLLBAR (MINIMALIST) 
+  
+   ========================================= */
+.parameter-list::-webkit-scrollbar {
+    width: 4px; /* Lebar bilah scroll sangat tipis */
+}
+
+.parameter-list::-webkit-scrollbar-track {
+    background: #F0F2F5;
+    border-radius: 10px;
+}
+
+.parameter-list::-webkit-scrollbar-thumb {
+    background: #E0E4E8;
+    border-radius: 10px;
+}
+
+.parameter-list::-webkit-scrollbar-thumb:hover {
+    background: #00B0F2;
+}
+
