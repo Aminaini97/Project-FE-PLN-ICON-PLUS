@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoring Kelistrikan - ENERGY MANAGEMENT PLATFORM</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <header class="auth-header-top">
+        <div class="header-container-flex">
+            <div class="header-left-group">
+                <div class="logo-compact">
+                    <img src="assets/logo_PLN_Icon_plus.png" alt="Logo PLN Icon Plus">
+                </div>
+                <div class="title-left-aligned">
+                    <h1>ENERGY MANAGEMENT PLATFORM</h1>
+                </div>
+            </div>
+
+            <div class="header-right-group">
+                <div class="notification-wrapper">
+                    <a href="Notifikasi.html" class="notification-btn">
+                        <i class="fa-solid fa-bell"></i>
+                        <span class="badge">9</span>
+                    </a>
+                </div>
+                <div class="user-profile-wrapper">
+                    <div class="user-info">
+                        <span class="user-initials">AP</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="header-line">
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <nav class="sidebar-menu">
+                <ul>
+                    <li>
+                        <a href="index.html">
+                            <i class="fa-solid fa-house"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Monitoring-Kelistrikan.html"><i class="fa-solid fa-chart-line"></i> <span>Monitoring Kelistrikan</span></a>
+                    </li>
+                    <li>
+                        <a href="Manajemen-Perangkat.html"><i class="fa-solid fa-microchip"></i> <span>Manajemen Perangkat</span></a>
+                    </li>
+                    <li>
+                        <a href="Perkiraan-Biaya.html"><i class="fa-solid fa-file-invoice-dollar"></i> <span>Perkiraan Biaya</span></a>
+                    </li>
+                    <li>
+                        <a href="Asisten-AI.html"><i class="fa-solid fa-wand-magic-sparkles"></i> <span>Asisten AI</span></a>
+                    </li>
+                    <li>
+                        <a href="Pengaturan-Tentang Akun.html"><i class="fa-solid fa-gear"></i> <span>Pengaturan</span></a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <div id="profileModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Detail Akun</h2>
+                </div>
+                <div class="modal-body">
+                    <form id="profileForm">
+                        <div class="form-row">
+                            <div class="form-group-modal">
+                                <label>Nama Perusahaan</label>
+                                <input type="text" placeholder="PLN Icon Plus">
+                            </div>
+                            <div class="form-group-modal">
+                                <label>Username</label>
+                                <input type="text" placeholder="Admin_PLN">
+                            </div>
+                        </div>
+                        <div class="form-group-modal">
+                            <label>Email</label>
+                            <input type="email" placeholder="admin@iconplus.id">
+                        </div>
+                        <div class="form-group-modal">
+                            <label>Nomor Telepon</label>
+                            <input type="text" placeholder="08123456789">
+                        </div>
+                        <div class="form-group-modal">
+                            <label>Alamat Perusahaan</label>
+                            <textarea placeholder="Jl. Gatot Subroto No.1"></textarea>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn-batal" id="btnBatal">Batal</button>
+                            <button type="submit" class="btn-simpan">Simpan Perubahan</button>
+                        </div>
+                    </form>
+                </div> 
+            </div>
+        </div>
+
+        <div id="successModal" class="modal">
+            <div class="modal-content-success"> 
+                <span class="close-btn-success" id="closeSuccess">&times;</span>         
+                <div class="success-icon">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+                <h2>Berhasil!</h2>
+                <p>Data profil Anda telah diperbarui.</p>
+            </div>
+        </div>
+
+        <script src="js/profile.js"></script>
+
+        <main class="main-content">
+            <h2 class="page-titlee">MONITORING KELISTRIKAN</h2>
+            <div class="monitoring-page-container">
+                <div class="real-time-summary-card">
+                    <div class="summary-header">
+                        <h3>Ringkasan Real-Time Parameter</h3>
+                        <span class="timestamp">11/06/2025 20:00</span>
+                    </div>
+
+                    <div class="parameter-grid">                
+                        <div class="param-card">
+                            <div class="param-value">235<span>A</span></div>
+                            <div class="param-label blue-text">Arus</div>
+                        </div>
+                        <div class="param-card">
+                            <div class="param-value">450<span>V</span></div>
+                            <div class="param-label blue-text">Tegangan</div>
+                        </div>
+                        <div class="param-card">
+                            <div class="param-value">950<span>kWh</span></div>
+                            <div class="param-label blue-text">Daya</div>
+                        </div>
+                        <div class="param-card">
+                            <div class="param-value">0.95<span>φ</span></div>
+                            <div class="param-label blue-text">Faktor Daya</div>
+                        </div>
+                        <div class="param-card">
+                            <div class="param-value">4.200<span>kWh</span></div>
+                            <div class="param-label blue-text">Beban Puncak</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="monitoring-toolbar">
+                    <div class="toolbar-left">
+                        <div class="custom-dropdown" id="filterWaktu">
+                            <button class="dropdown-trigger">Waktu <i class="fa-solid fa-caret-down"></i></button>
+                            <ul class="dropdown-menu">
+                                <li>Hari Ini</li>
+                                <li>Minggu Ini</li>
+                                <li>Bulan Ini</li>
+                            </ul>
+                        </div>
+                        <div class="custom-dropdown" id="filterArea">
+                            <button class="dropdown-trigger">Area <i class="fa-solid fa-caret-down"></i></button>
+                            <ul class="dropdown-menu">
+                                <li>Kantor Pusat</li>
+                                <li>Ruang Meeting</li>
+                                <li>Laboratorium</li>
+                            </ul>
+                        </div>
+                        <div class="custom-dropdown" id="filterKategori">
+                            <button class="dropdown-trigger">Kategori Perangkat <i class="fa-solid fa-caret-down"></i></button>
+                            <ul class="dropdown-menu">
+                                <li>AC</li>
+                                <li>Lampu</li>
+                                <li>Elektronik</li>
+                            </ul>
+                        </div>
+                        <div class="custom-dropdown" id="filterParameter">
+                            <button class="dropdown-trigger">Parameter Kelistrikan <i class="fa-solid fa-caret-down"></i></button>
+                            <ul class="dropdown-menu">
+                                <li>Arus</li>
+                                <li>Tegangan</li>
+                                <li>Daya</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="export-group">
+                        <div class="custom-dropdown" id="exportMenu">
+                            <button class="export-trigger">
+                                <i class="fa-solid fa-upload"></i> Ekspor <i class="fa-solid fa-caret-down"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-right">
+                                <li onclick="handleExport('PDF')"><i class="fa-solid fa-file-pdf"></i> PDF (.pdf)</li>
+                                <li onclick="handleExport('XLSX')"><i class="fa-solid fa-file-excel"></i> Excel (.xlsx)</li>
+                                <li onclick="handleExport('CSV')"><i class="fa-solid fa-file-csv"></i> CSV (.csv)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-main-card">
+                    <div class="chart-card-header">
+                        <h3 class="chart-card-title">Visualisasi Data Kelistrikan</h3>
+                    </div>
+                    <div class="chart-body">
+                        <canvas id="multiLineChart"></canvas>
+                    </div>
+                    <div class="custom-legend" id="chartLegend">
+                        <div class="legend-item"><span class="line arus"></span> Arus</div>
+                        <div class="legend-item"><span class="line tegangan"></span> Tegangan</div>
+                        <div class="legend-item"><span class="line daya"></span> Daya</div>
+                        <div class="legend-item"><span class="line faktor"></span> Faktor Daya</div>
+                        <div class="legend-item"><span class="line peak"></span> Load Peak</div>
+                    </div>
+                </div>
+
+                <div class="log-history-card">
+                    <div class="log-header">
+                        <h3 class="log-title">Riwayat Log Kelistrikan</h3>
+                    </div>
+                    
+                    <div class="table-responsive">
+                        <table class="log-table">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Waktu</th>
+                                    <th>Area</th>
+                                    <th>Kategori Perangkat</th>
+                                    <th>Arus (A)</th>
+                                    <th>Tegangan (V)</th>
+                                    <th>Daya (kWh)</th>
+                                    <th>Faktor Daya (φ)</th>
+                                    <th>Beban Puncak (kWh)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="logTableBody">
+                                </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+                <script src="js/monitoring.js"></script>
+
+            </div>
+        </main>
+    </div>
+</body>
+</html>

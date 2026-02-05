@@ -1,7 +1,3 @@
-/* =========================================
-   DASHBOARD LOGIC - ENERGY MANAGEMENT
-   ========================================= */
-
 document.addEventListener("DOMContentLoaded", function() {
     
     // --- 1. KONFIGURASI DATA ---

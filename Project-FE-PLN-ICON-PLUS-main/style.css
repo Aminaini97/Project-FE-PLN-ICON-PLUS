@@ -693,6 +693,16 @@ body {
     text-transform: uppercase; 
 }
 
+.page-titlee {
+    font-size: 15px; 
+    font-weight: 800;
+    color: var(--secondary-color);
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    text-transform: uppercase; 
+}
+
 .notif-search-box {
     position: relative; 
     margin-bottom: 10px;
@@ -1298,3 +1308,412 @@ body {
     background: #00B0F2;
 }
 
+.monitoring-page-container {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 120px);
+    margin-left: 20px;
+    margin-top: 0px;
+    margin-right: 20px;
+}
+
+.real-time-summary-card {
+    background: white;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.summary-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.summary-header h3 {
+    font-size: 12px;
+    color: #192434;
+    font-weight: 500;
+}
+
+.timestamp {
+    font-size: 10px;
+    color: var(--text-grey);
+}
+
+/* Grid Parameter */
+.parameter-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 5px;
+}
+
+.param-card {
+    display: flex;             /* Membuat isi kartu sejajar ke samping */
+    align-items: baseline;       /* Menyejajarkan teks secara vertikal di tengah */
+    justify-content: space-between; /* Label di kiri, Angka di kanan */
+    background: #FFFFFF;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid #E0E4E8;
+}
+
+.param-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--primary-color);
+    order: 1;                  /* Memastikan label muncul pertama (di kiri) */
+}
+
+.param-value {
+    font-size: 25px;
+    font-weight: 700;
+    color: var(--secondary-color);
+    order: 2;                  /* Memastikan angka muncul kedua (di kanan) */
+    display: flex;
+    align-items: baseline;     /* Menjaga satuan tetap sejajar garis bawah angka */
+}
+
+.param-value span {
+    font-size: 10px;
+    margin-left: 3px;
+    font-weight: 400;
+    color: #718096;
+}
+
+/* Jika ingin label di kanan dan angka di kiri, cukup tukar order-nya */
+
+/* Toolbar Dropdown */
+.monitoring-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.toolbar-left {
+    display: flex;
+    gap: 5px;
+}
+
+.export-btn {
+    background: white;
+    border: 1px solid #E0E4E8;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.chart-main-card {
+    background: #FFFFFF;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 5px;
+    height: 200px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border: 1px solid #E0E4E8;
+}
+
+.chart-card-title {
+    font-size: 12px;
+    font-weight: 500;
+    color: #192434;
+    margin-bottom: 5px;
+}
+
+.chart-body {
+    height: 75%; /* Tinggi grafik */
+    width: 100%;
+}
+
+/* Legenda di bagian bawah */
+.custom-legend {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 5px;
+    font-size: 10px;
+    color: #4A5568;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.line {
+    width: 15px;
+    height: 2px;
+    border-radius: 1px;
+}
+
+/* Warna sesuai tanda garis di gambar */
+.arus { background-color: var(--secondary-color); }
+.tegangan { background-color: var(--primary-color); }
+.daya { background-color: var(--text-grey); }
+.faktor { border-top: 3px dotted var(--text-grey); width: 25px; height: 0; }
+.peak { border-top: 3px dotted var(--primary-color); width: 25px; height: 0; }
+
+/* Container Log */
+.log-history-card {
+    background: #FFFFFF;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.log-title {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+}
+
+/* --- Tabel Kelistrikan dengan Scroll Internal --- */
+.table-responsive {
+    max-height: 90px;
+    margin-bottom: 0px;
+    overflow-y: auto;
+    border: 1px solid #E0E4E8;
+    border-radius: 5px;
+    position: relative;
+}
+
+.log-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 11px;
+    text-align: center;
+}
+
+/* Memperbaiki Header agar tetap di atas (Sticky) saat di-scroll */
+.log-table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: var(--secondary-color);
+    color: #FFFFFF;
+    padding: 10px 5px;
+    text-align: center;
+}
+
+.log-table td {
+    padding: 7.5px 5px;
+    border-bottom: 1px solid #E0E4E8;
+    color: #192434;
+}
+
+.log-table tbody tr:hover {
+    background-color: #F8F9FA;
+}
+
+/* --- Kustomisasi Scrollbar Minimalis --- */
+.table-responsive::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.table-responsive::-webkit-scrollbar-track {
+    background: #F4F7FE;
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+    background: #E0E4E8;
+    border-radius: 10px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb:hover {
+    background: #00B0F2; /* Aksen biru saat di-hover */
+}
+
+.manajemen-perangkat-page-container {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 60px);
+    padding: 20px;
+}
+
+/* =========================================
+   TOGGLE SWITCH (On/Off)
+   ========================================= */
+
+.toggle-container {
+    display: flex;
+    align-items: center;
+    margin-left: auto; /* Mendorong ke kanan di toolbar filter */
+}
+
+.toggle-input {
+    display: none;
+}
+
+.toggle-label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 75px; /* Ukuran proporsional sesuai gambar */
+    height: 25px;
+    background-color: var(--bg-white);
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1px solid #D1D5DB;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.toggle-text {
+    flex: 1;
+    text-align: center;
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--secondary-color);
+    z-index: 2;
+    user-select: none;
+    transition: color 0.3s ease;
+    line-height: 25px; /* Menyesuaikan tinggi label */
+}
+
+.toggle-handle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background-color: #A3AED0; /* Default OFF */
+    border-radius: 5px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    z-index: 1;
+}
+
+/* Logika Status Toggle */
+.toggle-input:checked + .toggle-label .toggle-handle {
+    transform: translateX(0);
+    background-color: var(--primary-color); /* Biru saat ON */
+}
+
+.toggle-input:checked + .toggle-label .on {
+    color: #FFFFFF;
+}
+
+.toggle-input:not(:checked) + .toggle-label .toggle-handle {
+    transform: translateX(100%);
+    background-color: #A3AED0; /* Abu-abu saat OFF */
+}
+
+.toggle-input:not(:checked) + .toggle-label .off {
+    color: #FFFFFF;
+}
+
+.toggle-label:hover {
+    border-color: var(--primary-color);
+}
+
+/* =========================================
+   KARTU MANAJEMEN PERANGKAT (TABEL)
+   ========================================= */
+
+.device-management-card {
+    background: #FFFFFF;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    margin-top: 10px;
+    border: 1px solid #E0E4E8;
+}
+
+.category-header-main {
+    background-color: var(--secondary-color); /* Pastikan var ini ada atau ganti #192434 */
+    color: #FFFFFF;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.add-category {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 10px;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Baris Tabel */
+.category-row {
+    display: flex; /* Menggunakan flex agar lebih mudah mengatur mepet kanan */
+    align-items: center;
+    padding: 5px 15px;
+    border-bottom: 1px solid #EDEDED;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.category-row.parent {
+    background-color: #FAFAFA;
+}
+
+.category-row.child {
+    padding-left: 50px;
+    background-color: #FFFFFF;
+}
+
+.row-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.row-center {
+    font-size: 12px;
+    color: var(--text-grey);
+    margin-left: auto;
+}
+
+/* Sisi Kanan (Mepet Kanan) */
+.row-right {
+    display: flex;
+    align-items: center;
+    margin-left: auto; /* INI KUNCI MEPET KANAN */
+    gap: 10px; /* Jarak antara toggle dan dot sesuai instruksi */
+}
+
+.device-name {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--text-grey);
+}
+
+.icon-toggle {
+    font-size: 12px;
+    transition: transform 0.3s ease;
+}
+
+.action-dots {
+    color: #A0AEC0;
+    cursor: pointer;
+    padding: 5px;
+    font-size: 14px;
+}
+
+.action-dots:hover {
+    color: #00B0F2;
+}
+
+/* Container untuk baris anak */
+.sub-category-container {
+    display: block; /* Default terlihat, JS akan mengatur toggle */
+}
+
+/* Highlight (Jika dipilih) */
+.selected-highlight {
+    border: 2px solid #00B0F2;
+    margin: 5px 0;
+}
